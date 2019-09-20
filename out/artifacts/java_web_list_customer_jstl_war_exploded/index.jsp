@@ -15,27 +15,27 @@
 <body>
 <%
     ArrayList<Customer> listCustomers = new ArrayList<>();
-    listCustomers.add(new Customer("Đào A", "20/10/2000", "Hà Nội", "<img src=\"A.jpg\"/>"));
-    listCustomers.add(new Customer("Đào B", "19/12/2001", "Cà Mau", "<img src=\"B.jpg\"/>"));
-    listCustomers.add(new Customer("Đào C", "21/11/2000", "Tuyên Quang", "<img src=\"C.jpg\"/>"));
-    listCustomers.add(new Customer("Đào D", "19/9/2001", "Nha Trang", "<img src=\"D.jpg\"/>"));
+    listCustomers.add(new Customer("Đào A", "20/10/2000", "Hà Nội", "A.jpg"));
+    listCustomers.add(new Customer("Đào B", "19/12/2001", "Cà Mau", "B.jpg"));
+    listCustomers.add(new Customer("Đào C", "21/11/2000", "Tuyên Quang", "C.jpg"));
+    listCustomers.add(new Customer("Đào D", "19/9/2001", "Nha Trang", "D.jpg"));
     pageContext.setAttribute("listCustomers", listCustomers);
 %>
 <form>
-    <table>
-        <tr><h2>Danh sách khách hàng</h2></tr>
+    <table border="1px solid red">
+        <tr><th colspan="4"><h1>Danh sách khách hàng</h1></th></tr>
         <tr>
-            <td>Tên</td>
-            <td>Ngày sinh</td>
-            <td>Địa chỉ</td>
-            <td>Ảnh</td>
+            <td width="150px" height="50px">Tên</td>
+            <td width="150px" height="50px">Ngày sinh</td>
+            <td width="150px" height="50px">Địa chỉ</td>
+            <td width="150px" height="50px">Ảnh</td>
         </tr>
         <c:forEach var="customer" items="#{listCustomers}">
             <tr>
                 <td><c:out value="${customer.name}"/></td>
                 <td><c:out value="${customer.birthday}"/></td>
                 <td><c:out value="${customer.address}"/></td>
-                <td><c:out value="${customer.image}"/></td>
+                <td><img src="<c:out value="${customer.image}"/>"  height=150px/></td>
             </tr>
         </c:forEach>
     </table>
